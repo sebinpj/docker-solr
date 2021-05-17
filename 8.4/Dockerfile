@@ -115,7 +115,6 @@ RUN set -ex; \
 
 COPY --chown=0:0 scripts /opt/docker-solr/scripts
 
-VOLUME /var/solr
 EXPOSE 8983
 WORKDIR /opt/solr
 USER $SOLR_USER
