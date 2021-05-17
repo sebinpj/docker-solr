@@ -1,4 +1,4 @@
-### Solr fork to create docker images with no volumes to create custom solr cores via Dockerfile
+### docker-solr with no volumes to create custom solr cores via Dockerfile
 
 to build a image run 
 
