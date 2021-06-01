@@ -7,7 +7,7 @@ if [[ -n "${DEBUG:-}" ]]; then
 fi
 
 TOP_DIR="$(readlink -f "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/..")"
-IMAGE_NAME="dockersolr/docker-solr"
+IMAGE_NAME="sebinpj/solr"
 if (( $# != 1 )); then
   echo "Usage: $0 build-dir"
   exit 1
@@ -27,7 +27,7 @@ docker pull "$parent" >/dev/null 2>&1
 
 "$TOP_DIR/tools/build.sh" "$build_dir"
 full_version=$(awk --field-separator ':' '$1 == "'"$relative_dir"'" {print $2}' "$TOP_DIR/TAGS")
-"$TOP_DIR/tests/test.sh" "$full_version"
+#"$TOP_DIR/tests/test.sh" "$full_version"
 read -r -a tags < <(awk --field-separator ':' '$1 == "'"$relative_dir"'" {print $3}' "$TOP_DIR/TAGS")
 "$TOP_DIR/tools/push.sh" "$IMAGE_NAME:$full_version"
 for tag in "${tags[@]}"; do
