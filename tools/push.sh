@@ -11,12 +11,12 @@ if [[ -n "${DEBUG:-}" ]]; then
   set -x
 fi
 
-GITHUB_REPO='docker-solr/docker-solr'
+GITHUB_REPO='sebinpj/docker-solr'
 # The organisation on hub.docker.com is "dockersolr".
 # It should really have been "docker-solr" for consistency with the github organisation
 # but currently dashes are not allowed, see https://github.com/docker/hub-feedback/issues/373
 # The hub user is "dockersolrbuilder".
-IMAGE_NAME='dockersolr/docker-solr'
+IMAGE_NAME='sebinpj/solr'
 
 function check_master {
   if [[ ${TRAVIS:-} = 'true' ]]; then
